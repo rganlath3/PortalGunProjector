@@ -27,9 +27,8 @@ def setAllBlueStatic():
         AFT_Pixel[x]=(0,0,255)
         
 
-
-BlueButton = Button(17) #Blue Pushbutton
-OrangeButton = Button(15) #Orange Pushbutton
+BlueButton = Button(17,bounce_time=0.1) #Blue Pushbutton
+OrangeButton = Button(15,bounce_time=0.1) #Orange Pushbutton
 
 FWD_Pixel = neopixel.NeoPixel(board.D21, 1, brightness=1)
 AFT_Pixel = neopixel.NeoPixel(board.D18, 29, brightness=1)
