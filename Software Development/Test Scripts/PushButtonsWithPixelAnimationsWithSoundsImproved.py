@@ -20,27 +20,37 @@ Color_Teal_Bright = (25,25,255)
 
 # AUDIO SETUP
 AudioPath = "/home/aperture/Documents/PortalGunProjector/Software Development/Sounds/"
-R_count = 4 #Store number of R_.wav files in Audio Directory
-B_count = 4 #Store number of B_.wav files in Audio Directory
-P_count = 2 #Store number of P_.wav files in Audio Directory
+R_count = 6 #Store number of R_.wav files in Audio Directory
+B_count = 6 #Store number of B_.wav files in Audio Directory
+P_count = 7 #Store number of P_.wav files in Audio Directory
+A_count = 2 #Store number of R_.wav files in Audio Directory
+M_count = 5 #Store number of B_.wav files in Audio Directory
+T_count = 5 #Store number of P_.wav files in Audio Directory
 
 
 
 def playRandomAudioFile(msg):
     #Takes in a str and based on that randomly plays a song in the sounds directory that starts with str.
     #Types of commands:
+    #A is for ambience, play this on a side channel
     #R is for red portals
     #B is for blue portals
-    #P is for misc sounds
+    #P is for bootup sounds, play this as a fun quote during bootup.
 
     global AudioPath,R_count,B_count,P_count
     cmd = AudioPath + msg 
-    if(msg=='R'):
+    if(msg == 'R'):
         cmd = cmd + str(random.randint(1,R_count)) #adjust randint values based on number of sounds in directory.
-    if(msg =='B'):
+    if(msg == 'B'):
         cmd = cmd + str(random.randint(1,B_count))
     if(msg == 'P'):
         cmd = cmd + str(random.randint(1,P_count))
+    if(msg == 'A'):
+        cmd = cmd + str(random.randint(1,A_count))
+    if(msg == 'M'):
+        cmd = cmd + str(random.randint(1,M_count))
+    if(msg == 'T'):
+        cmd = cmd + str(random.randint(1,T_count))
     cmd = cmd + ".wav"
     pygame.mixer.Sound(cmd).play()
 
@@ -270,7 +280,7 @@ def power_on_animation():
 ###############################################################
 ###########Setup Function (Runs once on powerup)###############
 ###############################################################     
-         
+
  #Initialize for audio playback
 pygame.init()
 #Initialize buttons
@@ -280,9 +290,16 @@ OrangeButton = Button(15,bounce_time=0.1)
 FWD_Pixel = neopixel.NeoPixel(board.D21, 1, brightness=1) 
 AFT_Pixel = neopixel.NeoPixel(board.D18, 31, brightness=1) #There is actually only 29, but for animations, I am adding an extra 2 LEDs.
 
+#Play Bootup Sound, followed by initialize sound, followed by ready sound.
+pygame.mixer.Sound(AudioPath+"T1.wav").play()
+
 playRandomAudioFile("P") #Startup Sound
+#make this blocking or queued
+
+pygame.mixer.Sound(AudioPath+"T2.wav").play()
+
 power_on_animation() #Neopixel Startup
-playRandomAudioFile("P") #Startup Sound
+#playRandomAudioFile("P") #Startup Sound
 print("Setup Complete, Starting Loop")
 
 ###############################################################
@@ -294,5 +311,6 @@ while True:
     BlueButton.when_released = callback_BlueButton_Pressed
     OrangeButton.when_released = callback_OrangeButton_Pressed
     pause()
+
 
 
