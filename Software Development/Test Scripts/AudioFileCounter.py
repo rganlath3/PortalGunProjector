@@ -3,10 +3,12 @@ import subprocess
 
 # AUDIO PART
 global AudioPath #Stores Audio Directory Folder Path
-global R_count #Store number of R_.wav files in Audio Directory
-global B_count #Store number of B_.wav files in Audio Directory
-global P_count #Store number of P_.wav files in Audio Directory
-
+R_count = 6 #Store number of R_.wav files in Audio Directory
+B_count = 6 #Store number of B_.wav files in Audio Directory
+P_count = 7 #Store number of P_.wav files in Audio Directory
+A_count = 2 #Store number of R_.wav files in Audio Directory
+M_count = 5 #Store number of B_.wav files in Audio Directory
+T_count = 5 #Store number of P_.wav files in Audio Directory
 #Find Audio Directory
 AudioPath = "/home/aperture/Documents/PortalGunProjector/Software Development/Sounds/"
 
@@ -17,6 +19,16 @@ result = subprocess.run(['ls', AudioPath], stdout=subprocess.PIPE, universal_new
 R_count = len([filename for filename in result.stdout.split() if 'R' in filename])
 B_count = len([filename for filename in result.stdout.split() if 'B' in filename])
 P_count = len([filename for filename in result.stdout.split() if 'P' in filename])
-print("Number of files with 'R' in the filename: ", R_count)
-print("Number of files with 'B' in the filename: ", B_count)
-print("Number of files with 'P' in the filename: ", P_count)
+A_count = len([filename for filename in result.stdout.split() if 'A' in filename])
+M_count = len([filename for filename in result.stdout.split() if 'M' in filename])
+T_count = len([filename for filename in result.stdout.split() if 'T' in filename])
+
+
+
+
+print("R_Count = ", R_count)
+print("B_Count = ", B_count)
+print("P_Count = ", P_count)
+print("A_Count = ", A_count)
+print("M_Count = ", M_count)
+print("T_Count = ", T_count)
