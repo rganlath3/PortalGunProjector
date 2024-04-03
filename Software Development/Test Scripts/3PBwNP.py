@@ -1,20 +1,26 @@
+#!/usr/bin/env python3
+
+#3 PushButton with Neopixel
+#Made by Ranil Ganlath 03-2024.
+#This script is used for Ranil's Portal Gun Projector Project and contains the following features:
+#PushButton Support
+#NeoPixel Static Test
+
 import time
 import board
 import neopixel
 from gpiozero import Button
 from signal import pause
-import pygame
+
 
 #Wire Up NeoPixels and Buttons to 5V.
 
 def callback_BlueButton_Pressed():
     print("Shooting Blue Portal!")
-    beep.play()
     setAllBlueStatic()
 
 def callback_OrangeButton_Pressed():
     print("Shooting Orange Portal!")
-    beep.play()
     setAllOrangeStatic()
 
 def setAllOrangeStatic():
@@ -29,8 +35,6 @@ def setAllBlueStatic():
         AFT_Pixel[x]=(0,0,255)
         
 
-pygame.init()
-beep = pygame.mixer.Sound("/home/aperture/Documents/PortalGunProjector/Software Development/Audio Assets/beepclear.wav")
 BlueButton = Button(17,bounce_time=0.1) #Blue Pushbutton
 OrangeButton = Button(15,bounce_time=0.1) #Orange Pushbutton
 

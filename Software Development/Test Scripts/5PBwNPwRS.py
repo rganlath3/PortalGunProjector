@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+
+#5 PushButton with Neopixel with Randomized Sounds
+#Made by Ranil Ganlath 03-2024.
+#This script is used for Ranil's Portal Gun Projector Project and contains the following features:
+#PushButton Support
+#NeoPixel Static Test
+#Randomized Sounds
+#Bootup Sounds
+
 import time
 import board
 import neopixel
@@ -76,14 +86,7 @@ def setAllBlueStatic():
     for x in range(0,28):
         AFT_Pixel[x]=(0,0,255)
 
-
-def setAllBlueAnim1():
-    FWD_Pixel[0] = (0, 0, 255) #Blue
-
-    
-    for x in range(0,28):
-        AFT_Pixel[x]=(0,0,255)    
-        
+       
 
 pygame.init()
 

@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+#2 NeoPixel
+#Made by Ranil Ganlath 02-2024.
+#This script is used for Ranil's Portal Gun Projector Project and contains the following features:
+#NeoPixel Test
+
+
 import time
 import board
 import neopixel

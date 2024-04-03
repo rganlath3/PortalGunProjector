@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+
+#1 PushButton
+#Made by Ranil Ganlath 02-2024.
+#This script is used for Ranil's Portal Gun Projector Project and contains the following features:
+#PushButton Support
+
 from gpiozero import Button
 from signal import pause
 

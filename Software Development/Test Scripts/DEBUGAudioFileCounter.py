@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+#Made by Ranil Ganlath 03-2024.
+#This script is used for Ranil's Portal Gun Projector Project and contains the following features:
+#Audio File Counter
 
 import subprocess
 

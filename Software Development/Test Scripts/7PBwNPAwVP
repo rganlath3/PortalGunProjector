@@ -1,3 +1,21 @@
+#!/usr/bin/env python3
+
+#7 PushButton with Neopixel Animations with Video Playback
+#Made by Ranil Ganlath 04-02-2024.
+#This script is used for Ranil's Portal Gun Projector Project and contains the following features:
+#PushButton Support
+#NeoPixel Animations
+#Randomized Sounds Replaced Temporarily with Video Playback
+#Bootup Animations and Sounds
+
+#TO DO
+""" 
+Add video playback on portal blast. Figure out how to launch video in fullscreen from cli.
+Add 2nd channel for playing ambience music. This may or may not get paused when a portal blast is played. 
+Test if ambience repeats nicely without pause.
+Make file paths relative for github cloning
+ """
+
 import time
 import board
 import neopixel
@@ -6,16 +24,6 @@ from signal import pause
 import pygame
 import random
 import math
-
-
-#TO DO
-""" 
-Create description at the top of this script
-Add video playback on portal blast. Figure out how to launch video in fullscreen from cli.
-Add 2nd channel for playing ambience music. This may or may not get paused when a portal blast is played. 
-Test if ambience repeats nicely without pause.
-Figure out how to run this script from startup.
- """
 
 
 #NEOPIXEL SETUP
@@ -301,7 +309,7 @@ def bootupAnimation(duration):
 ###########Setup Function (Runs once on powerup)###############
 ###############################################################     
 
-
+print("Starting Bootup")
 #Initialize buttons
 BlueButton = Button(17,bounce_time=0.1)
 OrangeButton = Button(15,bounce_time=0.1)
