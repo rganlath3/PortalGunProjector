@@ -24,6 +24,7 @@ from signal import pause
 import pygame
 import random
 import math
+import subprocess
 
 
 #NEOPIXEL SETUP
@@ -45,6 +46,12 @@ P_count = 7 #Store number of P_.wav files in Audio Directory
 A_count = 2 #Store number of R_.wav files in Audio Directory
 M_count = 5 #Store number of B_.wav files in Audio Directory
 T_count = 5 #Store number of P_.wav files in Audio Directory
+
+# VIDEO SETUP
+VideoPath = "/home/aperture/Documents/PortalGunProjector/Software Development/Videos/"
+VBP_count = 4 #Store number of BP_.wav files in Audio Directory
+VOP_count = 4 #Store number of OP_.wav files in Audio Directory
+current_process = None # Global variable to store the currently playing process
 
 
 ###############################################################
@@ -79,17 +86,45 @@ def playRandomAudioFile(msg):
     SoundFile.play()
     return SoundFile.get_length()
 
+def playVideo(video_path):
+    global current_process
+    # Stop the currently playing video, if any
+    if current_process:
+        current_process.kill()
+    # Play the new video
+    cmd = ["vlc", video_path,"--loop", "--no-video-title", "--fullscreen", "--no-qt-fs-controller","--no-audio"]
+    current_process = subprocess.Popen(cmd)
+
+def playRandomVideoFile(msg):
+    #Takes in a str and based on that randomly plays a video in the sounds directory that starts with str.
+    #Types of commands:
+    #OP is for orange portals
+    #BP is for blue portals
+
+    global VideoPath,VBP_count,VOP_count
+    cmd = VideoPath + msg 
+    if(msg == 'BP'):
+        cmd = cmd + str(random.randint(1,VBP_count)) #adjust randint values based on number of sounds in directory.
+    if(msg == 'OP'):
+        cmd = cmd + str(random.randint(1,VOP_count))
+    cmd = cmd + ".mp4"
+    playVideo(cmd)
+
 def callback_BlueButton_Pressed():
     #Runs when blue button is pressed
     #print("Shooting Blue Portal!")
+    playRandomVideoFile("BP")
     playRandomAudioFile("B")
     playRandomBlueAnimation()
+
 
 def callback_OrangeButton_Pressed():
     #Runs when orange button is pressed
     #print("Shooting Orange Portal!")
+    playRandomVideoFile("OP")
     playRandomAudioFile("R")
     playRandomOrangeAnimation()
+
 
 
 def playRandomOrangeAnimation():
