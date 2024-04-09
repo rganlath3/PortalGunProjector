@@ -1,7 +1,9 @@
+#This attempt uses VLC CLI to run videos.
+
 #If running as sudo (required for neopixels), VLC complains. The key is to run this command:
 # sudo sed -i 's/geteuid/getppid/' /usr/bin/vlc
 
-#This attempt uses VLC CLI to run videos.
+
 from gpiozero import Button
 from signal import pause
 import subprocess

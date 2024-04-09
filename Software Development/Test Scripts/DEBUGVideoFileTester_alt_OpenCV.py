@@ -1,3 +1,4 @@
+#This attempt uses OpenCV to run videos.
 
 #video_path = "/home/aperture/Documents/PortalGunProjector/Software Development/Videos/BP0.mp4"  # Update with your video file path
 
@@ -5,7 +6,7 @@
 #This works in command line but has a slight lag when looping video. I'm looking for alternatives.
 #vlc "/home/aperture/Documents/PortalGunProjector/Software Development/Videos/BP1.mp4" --loop --no-video-title --fullscreen --no-qt-fs-controller
 
-#This attempt uses OpenCV to run videos.
+
 import cv2
 
 def play_video(video_path):
