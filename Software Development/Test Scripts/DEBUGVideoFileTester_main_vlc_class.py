@@ -3,12 +3,71 @@ from signal import pause
 import vlc
 import random
 
+
+
+class VLC:
+    def __init__(self):
+        self.Player = vlc.Instance()
+        self.mediaPlayer = self.Player.media_player_new()
+        #self.media_list_player = self.Player.media_list_player_new()
+
+
+    def addPlaylist(self):
+        # VIDEO SETUP
+        VideoPath = "/home/aperture/Documents/PortalGunProjector/Software Development/Videos/"
+        VBP_count = 4 #Store number of BP_.wav files in Audio Directory
+        VOP_count = 4 #Store number of OP_.wav files in Audio Directory
+
+
+        #Path Setup
+        video_files = []
+        for file in range(1,VBP_count+1):
+            video_files.append("BP"+str(file)+".mp4")
+        for file in range(1,VOP_count+1):
+            video_files.append("OP"+str(file)+".mp4")
+        self.mediaList = self.Player.media_list_new()
+        self.listPlayer = self.Player.media_list_player_new()
+        #self.listPlayer.set_playback_mode(2)
+        for video in range(len(video_files)):
+            self.mediaList.add_media(self.Player.media_new(VideoPath+video_files[video]))
+
+        self.listPlayer.set_media_list(self.mediaList)
+        self.listPlayer.set_media_player(self.mediaPlayer)
+            
+
+    def play(self):
+        self.mediaPlayer.set_fullscreen(True)
+        
+        self.listPlayer.play()
+
+
+    def next(self):
+        self.listPlayer.next()
+
+    def pause(self):
+        self.listPlayer.pause()
+
+    def previous(self):
+        self.listPlayer.previous()
+
+    def stop(self):
+        self.listPlayer.stop()
+
+
+
+
+
+
+""" 
+
+
+
 # VIDEO SETUP
 VideoPath = "/home/aperture/Documents/PortalGunProjector/Software Development/Videos/"
 VBP_count = 4 #Store number of BP_.wav files in Audio Directory
 VOP_count = 4 #Store number of OP_.wav files in Audio Directory
-
-
+ """
+""" 
 #Path Setup
 video_files = []
 for file in range(1,VBP_count+1):
@@ -17,9 +76,9 @@ for file in range(1,VOP_count+1):
     video_files.append("OP"+str(file)+".mp4")
 
 #at this point, the array is fully built, now let's iterate over it after creating our media players
+ """
 
-
-
+""" 
 # creating a media player object 
 media_player = vlc.MediaListPlayer() 
 media_player.set_playback_mode(2) #This works, this loops whatever the current video in queue is. Maybe now we just have buttons that change index.
@@ -30,15 +89,15 @@ media_player.set_playback_mode(2) #This works, this loops whatever the current v
 player = vlc.Instance('--no-audio') 
 # creating a new media list object 
 media_list = player.media_list_new() 
+ """
 
 
-
-for video in range(len(video_files)):
+""" for video in range(len(video_files)):
     media = player.media_new(VideoPath+video_files[video]) # creating a new media 
     media_list.add_media(media) # adding media to media list 
     media_player.set_media_list(media_list) # setting media list to the media player 
     
-
+ """
 
 
 
@@ -48,11 +107,14 @@ for video in range(len(video_files)):
 #Then when a button is pushed, we tell the media_player to play the item at that index (can be randomized)
 
 
-
+player = VLC()
+player.addPlaylist()
+player.play()
 
 
 def playVideo(desiredIndex):
-    media_player.play_item_at_index(desiredIndex) 
+    player.play()
+    #media_player.play_item_at_index(desiredIndex) 
 
 def playVideoBlue():
     playVideo(random.randint(0,3))
