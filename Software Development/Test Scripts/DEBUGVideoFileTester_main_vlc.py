@@ -20,14 +20,24 @@ for file in range(1,VOP_count+1):
 
 
 
+""" # creating a media player object 
+media_player = vlc.MediaListPlayer() 
+media_player.set_playback_mode(2) #This works, this loops whatever the current video in queue is. Maybe now we just have buttons that change index.
+ """
+
+
+# creating Instance class object 
+player = vlc.Instance('--no-audio') 
+
+
+playman = vlc.MediaPlayer()
+playman.set_fullscreen(True)
+
 # creating a media player object 
 media_player = vlc.MediaListPlayer() 
 media_player.set_playback_mode(2) #This works, this loops whatever the current video in queue is. Maybe now we just have buttons that change index.
 
 
-
-# creating Instance class object 
-player = vlc.Instance('--no-audio') 
 # creating a new media list object 
 media_list = player.media_list_new() 
 
@@ -37,7 +47,7 @@ for video in range(len(video_files)):
     media = player.media_new(VideoPath+video_files[video]) # creating a new media 
     media_list.add_media(media) # adding media to media list 
     media_player.set_media_list(media_list) # setting media list to the media player 
-    
+media_player.set_media_player(playman)
 
 
 
