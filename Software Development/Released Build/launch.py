@@ -5,8 +5,18 @@
 #To install portalgun.desktop, simply copy it from this folder over to: /etc/xdg/autostart/portalgun.desktop
 
 import subprocess
+import os
 
-command = 'sudo lxterminal --title="Portal Gun" --geometry=80x20 -e python3 "/home/aperture/Documents/PortalGunProjector/Software Development/Test Scripts/8PBwNPAwVP.py"'
-#command = 'sudo lxterminal --title="Portal Gun" --geometry=800x800 -e python3 "/home/aperture/Documents/PortalGunProjector/Software Development/Test Scripts/7PBwNPAwVP.py"'
+# Path to the Python script (Change this to point to the latest build)
+script_path = "/home/aperture/Documents/PortalGunProjector/Software Development/Test Scripts/8PBwNPAwVP.py"
 
-subprocess.run(command, shell=True)
+
+if os.getenv('DISPLAY'):
+    #If we are using the graphical user interface (boot to raspi-desktop), opens new terminal
+    command = f'sudo lxterminal --title="Portal Gun" --geometry=80x20 -e python3 "{script_path}"'
+    subprocess.run(command, shell=True) 
+
+else:
+    #If we are using the command line interface (boot to terminal), runs script in current terminal
+    command = ['sudo', 'python3', script_path]
+    subprocess.run(command)

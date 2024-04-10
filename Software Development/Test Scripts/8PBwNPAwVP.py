@@ -13,6 +13,8 @@
 Add 2nd channel for playing ambience music. This may or may not get paused when a portal blast is played. 
 Test if ambience repeats nicely without pause.
 Make file paths relative for github cloning
+Add startup video for boot.
+Instead of using .desktop for startup, find alternate since it doesn't work with the CLI tool.
  """
 
 import time
