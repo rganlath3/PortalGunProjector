@@ -3,6 +3,8 @@ from signal import pause
 import vlc
 import random
 
+#See this link for more info on vlc https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.Instance-class.html
+
 # VIDEO SETUP
 VideoPath = "/home/aperture/Documents/PortalGunProjector/Software Development/Videos/"
 VBP_count = 4 #Store number of BP_.wav files in Audio Directory
@@ -19,36 +21,27 @@ for file in range(1,VOP_count+1):
 #at this point, the array is fully built, now let's iterate over it after creating our media players
 
 
-
-""" # creating a media player object 
-media_player = vlc.MediaListPlayer() 
-media_player.set_playback_mode(2) #This works, this loops whatever the current video in queue is. Maybe now we just have buttons that change index.
- """
-
-
 # creating Instance class object 
-player = vlc.Instance('--no-audio') 
+player = vlc.Instance() 
 
-
+# Create a media player object
 playman = vlc.MediaPlayer()
 playman.set_fullscreen(True)
+playman.audio_set_track(-1) #disable audio
 
-# creating a media player object 
+# creating a media list player object 
 media_player = vlc.MediaListPlayer() 
-media_player.set_playback_mode(2) #This works, this loops whatever the current video in queue is. Maybe now we just have buttons that change index.
-
+media_player.set_playback_mode(2) #repeat current video
 
 # creating a new media list object 
 media_list = player.media_list_new() 
 
-
-
+#Add all videos to playlist
 for video in range(len(video_files)):
     media = player.media_new(VideoPath+video_files[video]) # creating a new media 
     media_list.add_media(media) # adding media to media list 
-    media_player.set_media_list(media_list) # setting media list to the media player 
+media_player.set_media_list(media_list) # setting media list to the media player 
 media_player.set_media_player(playman)
-
 
 
 
@@ -56,8 +49,6 @@ media_player.set_media_player(playman)
 #Function that puts all the portal videos into a big playlist.
 # Ex. Blue Portal 1-4 are index 0 to 3. Orange Portal 1-4 are index 4-7
 #Then when a button is pushed, we tell the media_player to play the item at that index (can be randomized)
-
-
 
 
 
@@ -86,6 +77,5 @@ OrangeButton.when_released = callback_OrangeButton_Pressed
 
 #Initial Bootup Video
 playVideo(0)
-#player.set_fullscreen(True)
 print("Setup Complete, Ready for Portals")
 pause()

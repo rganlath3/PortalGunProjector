@@ -6,7 +6,7 @@
 
 import subprocess
 
-command = 'sudo lxterminal --title="Portal Gun" --geometry=80x20 -e python3 "/home/aperture/Documents/PortalGunProjector/Software Development/Test Scripts/7PBwNPAwVP.py"'
+command = 'sudo lxterminal --title="Portal Gun" --geometry=80x20 -e python3 "/home/aperture/Documents/PortalGunProjector/Software Development/Test Scripts/8PBwNPAwVP.py"'
 #command = 'sudo lxterminal --title="Portal Gun" --geometry=800x800 -e python3 "/home/aperture/Documents/PortalGunProjector/Software Development/Test Scripts/7PBwNPAwVP.py"'
 
 subprocess.run(command, shell=True)
