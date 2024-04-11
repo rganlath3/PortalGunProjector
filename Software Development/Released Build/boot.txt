@@ -1,0 +1,20 @@
+This is where I am keeping my notes for trying to run this script on startup.
+
+
+SOLUTION 1: Using cron tab.
+I added this line to cron tab:
+@reboot /bin/python "/home/aperture/Documents/PortalGunProjector/Software Development/Released Build/launch.py" &
+
+This works for when I boot into CLI. But...I can't ctrl+C to close the application. The only way to boot to a terminal is to switch HDMI ports which crashes my audio playback in my python script.
+This doesn't show up when I boot into desktop. I think it's executing before a window manager is running.
+
+Maybe I can try a delay with cron tab. Like this: @reboot /bin/sleep 600 ; /path/to/your/your_program
+
+SOLUTION 2: Using rc.local File
+This resulted in some very strange bootup for both CLI and Desktop, I do not reccomend this.
+
+SOLUTION 3: Using a .desktop File
+This works well when using the desktop interface but doesn't work with the CLI.
+
+SOLUTION 4: Using a .service File
+Haven't tried yet.

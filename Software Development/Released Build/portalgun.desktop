@@ -1,2 +1,8 @@
 [Desktop Entry]
+
+#Made by Ranil Ganlath 04-02-2024.
+#This is used to launch a python script on startup from a desktop environment only. It is used in conjunction with launch.py 
+#To install portalgun.desktop, simply copy it from this folder over to: /etc/xdg/autostart/portalgun.desktop
+
 Exec=sudo python "/home/aperture/Documents/PortalGunProjector/Software Development/Released Build/launch.py"
+Name=PortalGunBootup
