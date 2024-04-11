@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 
-#7 PushButton with Neopixel Animations with Video Playback
+#8 PushButton with Neopixel Animations with Video Playback
 #Made by Ranil Ganlath 04-02-2024.
 #This script is used for Ranil's Portal Gun Projector Project and contains the following features:
 #PushButton Support
 #NeoPixel Animations
 #Randomized Sounds and Video Playback
-#Bootup Animations and Sounds
+#Bootup Animations and Sounds and Video Playback
+#File Paths are now relative.
 
 #TO DO
 """ 
 Add 2nd channel for playing ambience music. This may or may not get paused when a portal blast is played. 
 Test if ambience repeats nicely without pause.
-Make file paths relative for github cloning
-Add startup video for boot.
 Instead of using .desktop for startup, find alternate since it doesn't work with the CLI tool.
  """
 
@@ -26,6 +25,7 @@ import pygame
 import random
 import math
 import vlc
+import pathlib
 
 #NEOPIXEL SETUP
 NUM_PIXELS = 31
@@ -38,8 +38,33 @@ Color_Teal_Bright = (25,25,255)
 Color_Black = (0,0,0)
 Color_White = (255, 255, 255)
 
+
+def getPath(pathType):
+    if pathType=="video":
+        path = path = str(pathlib.Path(__file__)) #get the file path where this script is stored.
+        index = path.rfind("PortalGunProjector")
+        if index != -1:
+            path = path[:index + len("PortalGunProjector")] + "/Software Development/Videos/"
+            return path
+        else:
+            print("Can't find that path")
+    if pathType=="audio":
+        path = path = str(pathlib.Path(__file__)) #get the file path where this script is stored.
+        index = path.rfind("PortalGunProjector")
+        if index != -1:
+            path = path[:index + len("PortalGunProjector")] + "/Software Development/Sounds/"
+            return path
+        else:
+            print("Can't find that path")
+    print("Error not valid path type")
+    return "ERROR"
+
+
+
+
+
 # AUDIO SETUP
-AudioPath = "/home/aperture/Documents/PortalGunProjector/Software Development/Sounds/"
+AudioPath = getPath("audio")
 R_count = 6 #Store number of R_.wav files in Audio Directory
 B_count = 6 #Store number of B_.wav files in Audio Directory
 P_count = 7 #Store number of P_.wav files in Audio Directory
@@ -48,10 +73,10 @@ M_count = 5 #Store number of B_.wav files in Audio Directory
 T_count = 5 #Store number of P_.wav files in Audio Directory
 
 # VIDEO SETUP
-VideoPath = "/home/aperture/Documents/PortalGunProjector/Software Development/Videos/"
-VBP_count = 4 #Store number of BP_.wav files in Audio Directory
-VOP_count = 4 #Store number of OP_.wav files in Audio Directory
-
+VideoPath = getPath("video")
+VBP_count = 4 #Store number of BP_.mp4 files in Audio Directory
+VOP_count = 4 #Store number of OP_.mp4 files in Audio Directory
+VBoot_count = 5 #Store number of Boot.mp4 files in Audio Directory
 
 ###############################################################
 #######################FUNCTIONS DEFINITIONS###################
@@ -101,6 +126,9 @@ def playRandomVideoFile(msg):
         playVideo(random.randint(0,3))
     if(msg == 'OP'):
         playVideo(random.randint(4,7)) 
+        #fix this to not be hardcoded, ex. starting range could be VBP_count to VBP_count + VOP_count
+    if(msg == 'BOOT'):
+        playVideo(random.randint(8,12)) 
         #fix this to not be hardcoded, ex. starting range could be VBP_count to VBP_count + VOP_count
 
 def callback_BlueButton_Pressed():
@@ -157,6 +185,8 @@ def playRandomBlueAnimation():
     if roll == 2:
         print("Shooting Blue Portal 3!")
         BluePortalAnim3()
+
+
 
 
 ###############################################################
@@ -322,6 +352,7 @@ def rgb_test_animation():
         time.sleep(0.0001)  # Adjust this value to change the speed of the animation
 
 def bootupAnimation(duration):
+    FWD_Pixel.fill(Color_White)
     start_time = time.monotonic()
     while time.monotonic() - start_time < duration:
         for i in range(NUM_PIXELS):
@@ -352,6 +383,9 @@ for file in range(1,VBP_count+1):
     video_files.append("BP"+str(file)+".mp4")
 for file in range(1,VOP_count+1):
     video_files.append("OP"+str(file)+".mp4")
+for file in range(1,VBoot_count+1):
+    video_files.append("BOOT"+str(file)+".mp4")
+
 #at this point, the array is fully built, now let's iterate over it after creating our media players
 # creating Instance class object 
 player = vlc.Instance() 
@@ -371,7 +405,11 @@ for video in range(len(video_files)):
 media_player.set_media_list(media_list) # setting media list to the media player 
 media_player.set_media_player(playman)
 #Initial Bootup Video
-playVideo(0)
+
+
+playRandomVideoFile("BOOT")
+
+
 #Initialize for audio playback
 pygame.init()
 #Play Bootup Sound
