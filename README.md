@@ -36,7 +36,7 @@ The idea was to take 3D printing a portal gun on thingiverse to the next level o
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Design Tools
+### Software Design Tools
 
 * Python (Primary Programming Language for this project)
 * VS Code (Programming IDE)
@@ -91,6 +91,35 @@ Using sanding paper and sponges I used the following grits:
 120->220->320->400 using spot putty where needed. Anything above 320 grit should be wet sanded. Then 2x coats of fillable primer spray paint. Then 400 grit. Then 1x coat of fillable primer. Then one more 400 grit. Then 600 grit. Then apply desired paint color (black and white) in many light coats.
 
 Once fully dried, use a damp sponge and wipe the parts. Once dried, apply layers of clearcoat in a very well ventilated area. This 2K stuff is really toxic so be careful.
+
+### PCB
+I designed a Raspberry Pi Hat PCB that handles powering the board (via 5V pins), powering LEDs, and acting as GPIO inputs/outputs for button inputs and driving neopixels. See Mk2 design for the latest. If I had a chance for another iteration, I would add slotted holes in the center section for the placement of a low profile fan for cooling the raspberry pi.
+
+### Wiring
+I used 22AWG and 16AWG for all wiring in the system. 22AWG was used for neopixels and GPIO pins while 16AWG was used for all power lines. 
+* Red - Power
+* Black - GND
+* Green - Data / GPIO
+
+### Power
+I have two separate power circuits: Pi and Projector.
+
+The Pi Circuit runs on 5V. It powers the neopixels, raspberry pi, and push button LEDs.
+* Voltage: 5V
+* Average Current (No Script):
+* Average Load (Full Load):
+* Theorhetical Max Load:
+* Average Full Load Power Draw:
+* Battery Required for 2 hour battery life:
+
+The Projector Circuit runs on 21V. It powers the projector and it's internal speakers.
+
+* Voltage: 21V
+* Average Current (No Script):
+* Average Load (Full Load):
+* Theorhetical Max Load:
+* Average Full Load Power Draw:
+* Battery Required for 2 hour battery life:
 
 
 ## Software Development
