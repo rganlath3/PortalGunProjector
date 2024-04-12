@@ -73,6 +73,24 @@ Slicer settings
 ### Model Prep
 Sanding, filler, painting, etc.
 
+* 3M Acryl Putty, 05096 Green or 05098 Red
+* Various Sandpaper and Sanding Sponges
+* Dremel
+* P95 or Better Respirator (don't cheap out on this)
+* Filler & Sandable Primer (I use cheap Rust-Oleum)
+* Montana Gold Shock White Pure Spray Paint
+* Montana Gold Shock Black Spray Paint
+* Spray Max USC 2K High Gloss Clearcoat (Automotive Clearcoat, expensive but worth it!)
+
+Once all the parts have been printed, we need to do some post processing to get the prints as smooth as possible. For my first iteration, I used a dremel to manually cut holes in some parts instead of just CADing them out. (I wasn't sure how things would exactly fit.)
+
+*Note: Anytime we are sanding or spray painting, you MUST be wearing that respirator! 
+Also try to handle all the parts with rubber gloves so your fingerprints don't mess up the paint coats.*
+
+Using sanding paper and sponges I used the following grits:
+120->220->320->400 using spot putty where needed. Anything above 320 grit should be wet sanded. Then 2x coats of fillable primer spray paint. Then 400 grit. Then 1x coat of fillable primer. Then one more 400 grit. Then 600 grit. Then apply desired paint color (black and white) in many light coats.
+
+Once fully dried, use a damp sponge and wipe the parts. Once dried, apply layers of clearcoat in a very well ventilated area. This 2K stuff is really toxic so be careful.
 
 
 ## Software Development
@@ -83,7 +101,7 @@ I am so used to using an arduino or other MCU to solve all my hardware integrati
 <!-- GETTING STARTED -->
 ## Getting Started
 
-* Install Raspbian Desktop Version ____
+* Install Raspberry Pi OS with Desktop (Debian v12) (64-bit)
   * we will use the desktop version for initial setup then switch to the CLI for actual operation. This saves time when troubleshooting things like VLC issues.
 * Copy this repo to any desired folder. 
   * For reference, my filepath was: */home/aperture/Documents/PortalGunProjector*
@@ -116,7 +134,7 @@ I am so used to using an arduino or other MCU to solve all my hardware integrati
 
 ### Installation
 
-1. Clone the repo, to a directory such as: */home/username/Documents/PortalGunProjector*
+1. If you haven't already, clone the repo, to a directory such as: */home/username/Documents/PortalGunProjector*
 
    ```sh
    git clone https://github.com/rganlath3/PortalGunProjector.git
