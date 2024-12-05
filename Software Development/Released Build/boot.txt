@@ -13,8 +13,13 @@ Maybe I can try a delay with cron tab. Like this: @reboot /bin/sleep 600 ; /path
 SOLUTION 2: Using rc.local File
 This resulted in some very strange bootup for both CLI and Desktop, I do not reccomend this.
 
-SOLUTION 3: Using a .desktop File
+SOLUTION 3: Using a .desktop File (Current Solution in use)
 This works well when using the desktop interface but doesn't work with the CLI.
 
 SOLUTION 4: Using a .service File
 Haven't tried yet.
+
+SOLUTION 5: Using .bashrc
+This runs on desktop with some issues. It runs everytime a terminal is opened which is not the most elegant solution. It sometimes runs without the videofeed.
+sudo gedit /home/aperture/.bashrc
+add to the bottom line: sudo python "/home/aperture/Documents/PortalGunProjector/Software Development/Released Build/launch.py"
