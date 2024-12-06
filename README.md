@@ -19,6 +19,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#assets">Assets</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -88,9 +89,13 @@ Once all the parts have been printed, we need to do some post processing to get 
 Also try to handle all the parts with rubber gloves so your fingerprints don't mess up the paint coats.*
 
 Using sanding paper and sponges I used the following grits:
-120->220->320->400 using spot putty where needed. Anything above 320 grit should be wet sanded. Then 2x coats of fillable primer spray paint. Then 400 grit. Then 1x coat of fillable primer. Then one more 400 grit. Then 600 grit. Then apply desired paint color (black and white) in many light coats.
+120->220->320->400 using spot putty where needed. Anything above 320 grit should be wet sanded. Then 2x coats of fillable primer spray paint. Then 400 grit. Then 1x coat of fillable primer. Then one more 400 grit. Then 600 grit. Then apply desired paint color (black and white) base coat in many light coats. (3-5 coats)
 
-Once fully dried, use a damp sponge and wipe the parts. Once dried, apply layers of clearcoat in a very well ventilated area. This 2K stuff is really toxic so be careful.
+Once fully dried, use a damp sponge and wipe the parts. Use 1000 grit to sand down the base coat. 
+
+Optional: Using citadel paints or any acrylic paints, add weathering, scuff marks, or damage. I ended up using a metal file and creating scratches. I finely dry brushed silver paint onto the black parts to create a metallic highlight effect. I also added a white line on the top white part.
+
+Once finished painting, we can now apply layers of clearcoat in a very well ventilated area. This 2K stuff is really toxic so be careful. I ended up using rust-oleum 2x ultracover clear instead which gave a good result but not as nice as 2k would have been. I used gloss clear coat on the white parts and black arms. I used matte clear coat on the black parts. Once fully cured, assembly can begin.
 
 ### PCB
 I designed a Raspberry Pi Hat PCB that handles powering the board (via 5V pins), powering LEDs, and acting as GPIO inputs/outputs for button inputs and driving neopixels. See Mk2 design for the latest. If I had a chance for another iteration, I would add slotted holes in the center section for the placement of a low profile fan for cooling the raspberry pi.
@@ -105,20 +110,19 @@ I used 22AWG and 16AWG for all wiring in the system. 22AWG was used for neopixel
 I have two separate power circuits: Pi and Projector.
 
 The Pi Circuit runs on 5V. It powers the neopixels, raspberry pi, and push button LEDs.
-* Voltage: 5V
-* Average Current (No Script):
-* Average Load (Full Load):
-* Theorhetical Max Load:
-* Average Full Load Power Draw:
+* Input Voltage: 12V
+* Converted Voltage: 5V
+* Average Wattage (Script Running): 4.1W
+* Theorhetical Max Load: 
+* Safety Factor (Max Power * 1.25W): 7W
 * Battery Required for 2 hour battery life:
 
 The Projector Circuit runs on 21V. It powers the projector and it's internal speakers.
-
-* Voltage: 21V
-* Average Current (No Script):
-* Average Load (Full Load):
+* Input Voltage: 12V
+* Converted Voltage: 21V
+* Average Watage (Lamp On): 41.46W
 * Theorhetical Max Load:
-* Average Full Load Power Draw:
+* Safety Factor (Max Power * 1.25W): 53W
 * Battery Required for 2 hour battery life:
 
 
@@ -175,13 +179,21 @@ I am so used to using an arduino or other MCU to solve all my hardware integrati
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Assets
+
+### Audio
+The portal gun plays audio out of the hdmi audio output via the projector speakers. Everytime a button is pressed, a random soundclip from a list will play to add some variety to mashing buttons. All audio files are in the "Sounds" folder and are recorded from in game. I do not own these files.
+
+### Video
+On bootup a random video and audio line will play as an initialization. On button presses, a random sized orange or blue portal video will play. I manually created these videos by screen recording Garry's Mod and careful editing. Bootup videos are sourced from the internet and are not owned by me. 
+
 
 <!-- ROADMAP -->
 ## Roadmap
 
 - [ ] Add Visual Documentation to GitHub
-- [ ] Paint Parts
-- [ ] Assemble Parts
+- [x] Paint Parts
+- [x] Assemble Parts
 - [ ] Create Battery Harness and Holder
 
 
