@@ -1,6 +1,6 @@
 # Portal Gun Embedded Projector
 
-![Alt text](/VisualDocumentation/test.png)
+![Portal Gun Iso View](/VisualDocumentation/CAD-ISO_View.png)
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -70,6 +70,16 @@ The idea was to take 3D printing a portal gun on thingiverse to the next level o
 
 ### 3D Printing the Model
 Slicer settings
+I used this portal gun design as a basis for my version. This creator put a lot of work into his design so please give him the attention he deserves:
+
+![Embedding Projector](/VisualDocumentation/CAD-Embedding_Projector.png)
+
+
+Besides modifying parts to fit the projector, I also designed an electronics sled to fit the handle base. 
+
+![Electronics Sled](/VisualDocumentation/CAD-Electronics_Sled.png)
+
+
 
 ### Model Prep
 Sanding, filler, painting, etc.
@@ -88,8 +98,12 @@ Once all the parts have been printed, we need to do some post processing to get 
 *Note: Anytime we are sanding or spray painting, you MUST be wearing that respirator! 
 Also try to handle all the parts with rubber gloves so your fingerprints don't mess up the paint coats.*
 
+![Initial Sanding](/VisualDocumentation/Sanding_3D_Printed_Parts_1.jpg)
+
 Using sanding paper and sponges I used the following grits:
 120->220->320->400 using spot putty where needed. Anything above 320 grit should be wet sanded. Then 2x coats of fillable primer spray paint. Then 400 grit. Then 1x coat of fillable primer. Then one more 400 grit. Then 600 grit. Then apply desired paint color (black and white) base coat in many light coats. (3-5 coats)
+
+![Fillable Primer Sanded](/VisualDocumentation/Sanding_3D_Printed_Parts_2.jpg)
 
 Once fully dried, use a damp sponge and wipe the parts. Use 1000 grit to sand down the base coat. 
 
@@ -100,11 +114,17 @@ Once finished painting, we can now apply layers of clearcoat in a very well vent
 ### PCB
 I designed a Raspberry Pi Hat PCB that handles powering the board (via 5V pins), powering LEDs, and acting as GPIO inputs/outputs for button inputs and driving neopixels. See Mk2 design for the latest. If I had a chance for another iteration, I would add slotted holes in the center section for the placement of a low profile fan for cooling the raspberry pi.
 
+![PCB Iso View](/VisualDocumentation/PCB-Iso_View.png)
+
+
 ### Wiring
 I used 22AWG and 16AWG for all wiring in the system. 22AWG was used for neopixels and GPIO pins while 16AWG was used for all power lines. 
 * Red - Power
 * Black - GND
 * Green - Data / GPIO
+
+![PCB Iso View](/VisualDocumentation/CAD-Cross_Section_1.png)
+
 
 ### Power
 I have two separate power circuits: Pi and Projector.
@@ -124,6 +144,8 @@ The Projector Circuit runs on 21V. It powers the projector and it's internal spe
 * Theorhetical Max Load:
 * Safety Factor (Max Power * 1.25W): 53W
 * Battery Required for 2 hour battery life:
+
+![Initial Electronics Wiring](/VisualDocumentation/Initial_Electroincs_Testing.jpg)
 
 
 ## Software Development
