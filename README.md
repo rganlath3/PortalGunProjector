@@ -185,7 +185,7 @@ I am so used to using an arduino or other MCU to solve all my hardware integrati
 The portal gun plays audio out of the hdmi audio output via the projector speakers. Everytime a button is pressed, a random soundclip from a list will play to add some variety to mashing buttons. All audio files are in the "Sounds" folder and are recorded from in game. I do not own these files.
 
 ### Video
-On bootup a random video and audio line will play as an initialization. On button presses, a random sized orange or blue portal video will play. I manually created these videos by screen recording Garry's Mod and careful editing. Bootup videos are sourced from the internet and are not owned by me. 
+On bootup a random video and audio line will play as an initialization. On button presses, a random sized orange or blue portal video will play. I manually created these videos by screen recording Garry's Mod and careful editing. Bootup videos are sourced from Portal Gameplay and Trailers from Value off the internet and are not owned by me. 
 
 
 <!-- ROADMAP -->
