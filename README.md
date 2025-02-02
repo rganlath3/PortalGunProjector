@@ -1,6 +1,6 @@
 # Portal Gun Embedded Projector
 
-![Alt text](/VisualDocumentation/CAD - ISO View.png)
+![Alt text](/VisualDocumentation/test.png)
 
 <!-- TABLE OF CONTENTS -->
 <details>
