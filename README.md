@@ -242,7 +242,10 @@ On bootup a random video and audio line will play as an initialization. On butto
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+## Contributing & Donations
+
+Any donation helps to support parts for future open source projects!
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="rganlath" data-color="#FF5F5F" data-emoji="☕"  data-font="Poppins" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
