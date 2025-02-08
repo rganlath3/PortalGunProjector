@@ -4,6 +4,10 @@
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
+
+<details>
+<summary>Table of Contents</summary>
+
 1. [About The Project](#about-the-project)
     - [Software Design Tools](#software-design-tools)
 2. [Hardware Development](#hardware-development)
@@ -25,7 +29,7 @@
 8. [License](#license)
 9. [Contact](#contact)
 
-
+</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -74,6 +78,8 @@ The idea was to take 3D printing a portal gun on thingiverse to the next level o
 I used this portal gun design as a basis for my version. This creator put a lot of work into his design so please give him the attention he deserves: [EVARATE Portal Gun](https://www.thingiverse.com/thing:3579224)
 
 ![Embedding Projector](/VisualDocumentation/CAD-Embedding_Projector.png){: style="width:300px;"}
+
+<img src="/VisualDocumentation/CAD-Embedding_Projector.png" width="300">
 
 
 Besides modifying parts to fit the projector, I also designed an electronics sled to fit the handle base. This is what the DC-DC converters and Raspberry Pi mount to.
