@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "testlib")(type "KiCad")(uri "C:/Users/zenta/Desktop/testlib.pretty")(options "")(descr ""))
-)

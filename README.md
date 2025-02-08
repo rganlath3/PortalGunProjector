@@ -1,39 +1,37 @@
 # Portal Gun Embedded Projector
 
-![Portal Gun Iso View](/VisualDocumentation/CAD-ISO_View.png)
+![Portal Gun Iso View](/VisualDocumentation/CAD-ISO_View_1.png)
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#assets">Assets</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
+## Table of Contents
+1. [About The Project](#about-the-project)
+    - [Software Design Tools](#software-design-tools)
+2. [Hardware Development](#hardware-development)
+    - [Hardware Used](#hardware-used)
+    - [3D Printing the Model](#3d-printing-the-model)
+    - [Model Prep](#model-prep)
+    - [PCB](#pcb)
+    - [Wiring](#wiring)
+    - [Power](#power)
+3. [Software Development](#software-development)
+4. [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+5. [Assets](#assets)
+    - [Audio](#audio)
+    - [Video](#video)
+6. [Roadmap](#roadmap)
+7. [Contributing](#contributing)
+8. [License](#license)
+9. [Contact](#contact)
 
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-A projector embedded into a sci fi 3D printed gun from the popular Valve Game, Portal.
+In short: a projector embedded into a sci fi 3D printed prop gun from the popular Valve Game, Portal.
 
-The idea was to take 3D printing a portal gun on thingiverse to the next level of realism. My brother inspired me to create a portal gun with an actual hdmi projector inside of the gun. This projector was project visuals from the game and act as a standard portable projector. Alongside portal visuals, the gun needed to produce sounds (and constant ambient audio) and control two sets of led neopixels. Power distribution and button wiring also needs to be managed inside the gun. The only external features besides interfaces button are two DC jacks that feed to batteries or wall power. 
+The idea was to take 3D printing a portal gun on thingiverse to the next level of realism. My brother inspired me to create a prop portal gun with an actual hdmi projector inside of the prop. This projector would show visuals from the game and act as a standard portable projector. Alongside portal visuals, the prop gun needed to produce sounds (and constant ambient audio) and control two sets of led neopixels. Power distribution and button wiring also needs to be managed inside the gun. The only external features besides interfaces button are two DC jacks that feed to batteries or wall power. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -41,13 +39,17 @@ The idea was to take 3D printing a portal gun on thingiverse to the next level o
 
 * Python (Primary Programming Language for this project)
 * VS Code (Programming IDE)
-* Fusion360 (Free CAD Software)
+* Autodesk Fusion360 (Free CAD Software)
 * KiCAD 7 (Free PCB Design Software)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Hardware Development
+
+### Electrical Interconnect Diagram
+![Electrical Interconnect Diagram](/VisualDocumentation/Electrical-Portal_Gun_Projector_Interconnect.jpg)
+
 
 ### Hardware Used
 * Raspberry Pi 4 (SBC)
@@ -65,20 +67,18 @@ The idea was to take 3D printing a portal gun on thingiverse to the next level o
 * 1x 1ft. RGB COB Individually Addressable 5V LED Strip 
 * Portal Gun 3D Design: (found on thingiverse [here](https://www.thingiverse.com/thing:3579224)) 
 * My modifications to the Portal Gun 3D Design.
-* 3D Printer (I used eSUN PLA+ Filament for all parts) (not a sponser, use whatever you like)
+* 3D Printer: Creality CR-10SProV2 (I used eSUN PLA+ Filament for all parts) (not a sponser, use whatever you like)
 
 
 ### 3D Printing the Model
-Slicer settings
-I used this portal gun design as a basis for my version. This creator put a lot of work into his design so please give him the attention he deserves:
+I used this portal gun design as a basis for my version. This creator put a lot of work into his design so please give him the attention he deserves: [EVARATE Portal Gun](https://www.thingiverse.com/thing:3579224)
 
-![Embedding Projector](/VisualDocumentation/CAD-Embedding_Projector.png)
+![Embedding Projector](/VisualDocumentation/CAD-Embedding_Projector.png){: style="width:300px;"}
 
 
-Besides modifying parts to fit the projector, I also designed an electronics sled to fit the handle base. 
+Besides modifying parts to fit the projector, I also designed an electronics sled to fit the handle base. This is what the DC-DC converters and Raspberry Pi mount to.
 
-![Electronics Sled](/VisualDocumentation/CAD-Electronics_Sled.png)
-
+![Electronics Sled](/VisualDocumentation/CAD-Electronics_Sled.png){: style="width:200px;"}
 
 
 ### Model Prep
@@ -98,12 +98,12 @@ Once all the parts have been printed, we need to do some post processing to get 
 *Note: Anytime we are sanding or spray painting, you MUST be wearing that respirator! 
 Also try to handle all the parts with rubber gloves so your fingerprints don't mess up the paint coats.*
 
-![Initial Sanding](/VisualDocumentation/Sanding_3D_Printed_Parts_1.jpg)
+![Initial Sanding](/VisualDocumentation/Sanding_3D_Printed_Parts_1.jpg){: style="width:300px;"}
 
 Using sanding paper and sponges I used the following grits:
-120->220->320->400 using spot putty where needed. Anything above 320 grit should be wet sanded. Then 2x coats of fillable primer spray paint. Then 400 grit. Then 1x coat of fillable primer. Then one more 400 grit. Then 600 grit. Then apply desired paint color (black and white) base coat in many light coats. (3-5 coats)
+120->220->320->400 using spot putty where needed. Anything above 320 grit should be wet sanded. Then 2x coats of fillable primer spray paint. Then 400 grit. Then 1x coat of fillable primer. Then one more 400 grit. Then 600 grit. Then apply desired paint color (black and white) base coat in many light coats. (3-5 coats) I'd like to try to find an alternate to Montana Gold.
 
-![Fillable Primer Sanded](/VisualDocumentation/Sanding_3D_Printed_Parts_2.jpg)
+![Fillable Primer Sanded](/VisualDocumentation/Sanding_3D_Printed_Parts_2.jpg){: style="width:300px;"}
 
 Once fully dried, use a damp sponge and wipe the parts. Use 1000 grit to sand down the base coat. 
 
@@ -114,7 +114,7 @@ Once finished painting, we can now apply layers of clearcoat in a very well vent
 ### PCB
 I designed a Raspberry Pi Hat PCB that handles powering the board (via 5V pins), powering LEDs, and acting as GPIO inputs/outputs for button inputs and driving neopixels. See Mk2 design for the latest. If I had a chance for another iteration, I would add slotted holes in the center section for the placement of a low profile fan for cooling the raspberry pi.
 
-![PCB Iso View](/VisualDocumentation/PCB-Iso_View.png)
+![PCB Iso View](/VisualDocumentation/PCB-Iso_View.png){: style="width:400px;"}
 
 
 ### Wiring
@@ -123,7 +123,7 @@ I used 22AWG and 16AWG for all wiring in the system. 22AWG was used for neopixel
 * Black - GND
 * Green - Data / GPIO
 
-![PCB Iso View](/VisualDocumentation/CAD-Cross_Section_1.png)
+![PCB Iso View](/VisualDocumentation/CAD-Cross_Section_1.png){: style="width:700px;"}
 
 
 ### Power
@@ -145,7 +145,7 @@ The Projector Circuit runs on 21V. It powers the projector and it's internal spe
 * Safety Factor (Max Power * 1.25W): 53W
 * Battery Required for 2 hour battery life:
 
-![Initial Electronics Wiring](/VisualDocumentation/Initial_Electroincs_Testing.jpg)
+![Initial Electronics Wiring](/VisualDocumentation/Initial_Electroincs_Testing.jpg){: style="width:500px;"}
 
 
 ## Software Development
@@ -213,13 +213,11 @@ On bootup a random video and audio line will play as an initialization. On butto
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Add Visual Documentation to GitHub
+- [x] Add Visual Documentation to GitHub
 - [x] Paint Parts
 - [x] Assemble Parts
 - [ ] Create Battery Harness and Holder
 
-
-See the [open issues](https://github.com/rganlath3/PortalGunProjector/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -245,8 +243,7 @@ Don't forget to give the project a star! Thanks again!
 
 <!-- LICENSE -->
 ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+The content of this project itself is licensed under CERN-OHL-S-2.0 and the underlying source code used for programming the raspberry pi is licensed under GNU GPLv3. Both of these licenses require attribution.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
