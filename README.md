@@ -39,7 +39,7 @@ The idea was to take 3D printing a portal gun on thingiverse to the next level o
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Software Design Tools
+### Design Tools
 
 * Python (Primary Programming Language for this project)
 * VS Code (Programming IDE)
@@ -77,14 +77,12 @@ The idea was to take 3D printing a portal gun on thingiverse to the next level o
 ### 3D Printing the Model
 I used this portal gun design as a basis for my version. This creator put a lot of work into his design so please give him the attention he deserves: [EVARATE Portal Gun](https://www.thingiverse.com/thing:3579224)
 
-![Embedding Projector](/VisualDocumentation/CAD-Embedding_Projector.png){: style="width:300px;"}
-
 <img src="/VisualDocumentation/CAD-Embedding_Projector.png" width="300">
 
 
 Besides modifying parts to fit the projector, I also designed an electronics sled to fit the handle base. This is what the DC-DC converters and Raspberry Pi mount to.
 
-![Electronics Sled](/VisualDocumentation/CAD-Electronics_Sled.png){: style="width:200px;"}
+<img src="/VisualDocumentation/CAD-Electronics_Sled.png" width="200">
 
 
 ### Model Prep
@@ -104,12 +102,14 @@ Once all the parts have been printed, we need to do some post processing to get 
 *Note: Anytime we are sanding or spray painting, you MUST be wearing that respirator! 
 Also try to handle all the parts with rubber gloves so your fingerprints don't mess up the paint coats.*
 
-![Initial Sanding](/VisualDocumentation/Sanding_3D_Printed_Parts_1.jpg){: style="width:300px;"}
+<img src="/VisualDocumentation/Sanding_3D_Printed_Parts_1.jpg" width="300">
+
 
 Using sanding paper and sponges I used the following grits:
 120->220->320->400 using spot putty where needed. Anything above 320 grit should be wet sanded. Then 2x coats of fillable primer spray paint. Then 400 grit. Then 1x coat of fillable primer. Then one more 400 grit. Then 600 grit. Then apply desired paint color (black and white) base coat in many light coats. (3-5 coats) I'd like to try to find an alternate to Montana Gold.
 
-![Fillable Primer Sanded](/VisualDocumentation/Sanding_3D_Printed_Parts_2.jpg){: style="width:300px;"}
+<img src="/VisualDocumentation/Sanding_3D_Printed_Parts_2.jpg" width="300">
+
 
 Once fully dried, use a damp sponge and wipe the parts. Use 1000 grit to sand down the base coat. 
 
@@ -120,7 +120,7 @@ Once finished painting, we can now apply layers of clearcoat in a very well vent
 ### PCB
 I designed a Raspberry Pi Hat PCB that handles powering the board (via 5V pins), powering LEDs, and acting as GPIO inputs/outputs for button inputs and driving neopixels. See Mk2 design for the latest. If I had a chance for another iteration, I would add slotted holes in the center section for the placement of a low profile fan for cooling the raspberry pi.
 
-![PCB Iso View](/VisualDocumentation/PCB-Iso_View.png){: style="width:400px;"}
+<img src="/VisualDocumentation/PCB-Iso_View.png" width="400">
 
 
 ### Wiring
@@ -129,7 +129,7 @@ I used 22AWG and 16AWG for all wiring in the system. 22AWG was used for neopixel
 * Black - GND
 * Green - Data / GPIO
 
-![PCB Iso View](/VisualDocumentation/CAD-Cross_Section_1.png){: style="width:700px;"}
+<img src="/VisualDocumentation/CAD-Cross_Section_1.png" width="700">
 
 
 ### Power
@@ -151,7 +151,7 @@ The Projector Circuit runs on 21V. It powers the projector and it's internal spe
 * Safety Factor (Max Power * 1.25W): 53W
 * Battery Required for 2 hour battery life:
 
-![Initial Electronics Wiring](/VisualDocumentation/Initial_Electroincs_Testing.jpg){: style="width:500px;"}
+<img src="/VisualDocumentation/Initial_Electroincs_Testing.jpg" width="500">
 
 
 ## Software Development
@@ -210,7 +210,7 @@ I am so used to using an arduino or other MCU to solve all my hardware integrati
 ## Assets
 
 ### Audio
-The portal gun plays audio out of the hdmi audio output via the projector speakers. Everytime a button is pressed, a random soundclip from a list will play to add some variety to mashing buttons. All audio files are in the "Sounds" folder and are recorded from in game. I do not own these files.
+The portal gun plays audio out of the hdmi audio output via the projector speakers. Everytime a button is pressed, a random soundclip from a list will play to add some variety to mashing buttons. All audio files are in the "Sounds" folder and are extracted from in game. I do not own these files.
 
 ### Video
 On bootup a random video and audio line will play as an initialization. On button presses, a random sized orange or blue portal video will play. I manually created these videos by screen recording Garry's Mod and careful editing. Bootup videos are sourced from Portal Gameplay and Trailers from Value off the internet and are not owned by me. 
@@ -218,12 +218,24 @@ On bootup a random video and audio line will play as an initialization. On butto
 
 <!-- ROADMAP -->
 ## Roadmap
-
+- [x] CAD Small Projector
+- [x] Modify Portal Gun Designs
+- [x] Design electrical interconnect
+- [x] 3D Print all parts
+- [x] Sanding and post processing on parts
+- [x] Painting all parts
+- [x] Redesign electrical interconnect
+- [x] Create Electronics Sled
+- [x] Create wiring harness
+- [x] Test LED effects
+- [x] Integrate pushbuttons into programming
+- [x] Create portal and bootup videos
+- [x] Configure code to run on startup
 - [x] Add Visual Documentation to GitHub
-- [x] Paint Parts
-- [x] Assemble Parts
-- [ ] Create Battery Harness and Holder
-
+- [x] Assemble Portal Gun
+- [x] Final tests with benchtop power supply
+- [ ] Add magnets and external cables
+- [ ] Create Battery Harness
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -237,19 +249,13 @@ Contributions are what make the open source community such an amazing place to l
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- LICENSE -->
 ## License
-The content of this project itself is licensed under CERN-OHL-S-2.0 and the underlying source code used for programming the raspberry pi is licensed under GNU GPLv3. Both of these licenses require attribution.
+The contents of this project itself is licensed under CERN-OHL-S-2.0 and the underlying source code used for programming the raspberry pi is licensed under GNU GPLv3. Both of these licenses require attribution.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
