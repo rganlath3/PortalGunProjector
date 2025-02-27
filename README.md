@@ -254,7 +254,7 @@ sudo usermod -a -G gpio $USER
 ```
 
 2. Video Playback Issues
-- Ensure HDMI is properly configured
+- Ensure micro HDMI port used is closest to USB-C power connector.
 - Check video codec compatibility
 - Verify file permissions
 
